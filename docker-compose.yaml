@@ -10,12 +10,17 @@ services:
       DEBUG: "False"
       RUN_MIGRATIONS: "True"
       DJANGO_SECRET_KEY: "insecure-key-fill-with-your-own"
-      REDIS_PRIVATE_URL: "redis://redis:6379"
+      # Postgres params
       POSTGRES_HOST: "db"
+      POSTGRES_PORT: "5432"
       POSTGRES_DB: "postgres"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_PORT: "5432"
+      # Redis params
+      REDISHOST: "redis"
+      REDISPORT: "6379"
+      REDISUSER: "default"
+      REDISPASSWORD: "asd"
     depends_on: &app-depends-on
       - db
       - redis

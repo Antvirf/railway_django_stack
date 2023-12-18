@@ -87,8 +87,12 @@ DATABASES = {
     }
 }
 
+# "redis://default:nMBHkaMnAFJigALnJ5hEKhcbEhGlPlJo@viaduct.proxy.rlwy.net:34680"
+REDIS_URL = f"redis://{config('REDISUSER', default='default')}:{config('REDISPASSWORD', default='')}@{config('REDISHOST', default='redis')}:{config('REDISPORT', default=6379)}"
+
+
 # CELERY CONFIG
-CELERY_BROKER_URL = config("REDIS_URL", default="redis://redis:6379")
+CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = config("CELERY_RESULT_BACKEND", default="django-db")
 CELERY_BEAT_SCHEDULER = config(
     "CELERY_BEAT_SCHEDULER", default="django_celery_beat.schedulers.DatabaseScheduler"
@@ -98,7 +102,7 @@ CELERY_BEAT_SCHEDULER = config(
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": config("REDIS_PRIVATE_URL", default="redis://redis:6379"),
+        "LOCATION": REDIS_URL,
     }
 }
 
