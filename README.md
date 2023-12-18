@@ -6,7 +6,9 @@ Full Django/Postgres stack with Celery tasks and Redis as cache/queue.
 
 ## Overview
 
-Deploy a "complete" Django setup - DB, caching and background tasks with Celery are all set up and ready to go. Deploy your background services
+Deploy a "complete" Django setup - DB, caching and background tasks with Celery are all set up and ready to go.
+
+Check out the full readme and brief on GitHub: https://github.com/Antvirf/railway_django_stack
 
 ## Deploying the template
 
@@ -44,7 +46,6 @@ docker-compose up
 
 ## Service diagram
 
-
 > **Warning**
 > Please check the instructions above on deploying the template. By default, Railway creates publicly available proxies for your Postgres and Redis services - make sure to delete them. Should you ever need direct access, creating the proxies is just a few clicks.
 
@@ -79,8 +80,8 @@ This is a barebones Django-project with the following additions/updates:
 - Configures a PostgreSQL database
 - Configures a Redis cache
 - Configures Celery, and installs the following add-on apps:
-    - [`django-celery-beat`](https://github.com/celery/django-celery-beat) for periodic task management
-    - [`django-celery-results`](https://github.com/celery/django-celery-results) for viewing results of Celery tasks in Django Admin
+  - [`django-celery-beat`](https://github.com/celery/django-celery-beat) for periodic task management
+  - [`django-celery-results`](https://github.com/celery/django-celery-results) for viewing results of Celery tasks in Django Admin
 - Uses [`python-decouple`](https://github.com/HBNetwork/python-decouple) to manage settings via environment varialbes
 - Uses [`whitenoise`](https://github.com/evansd/whitenoise) to make serving static assets easy
 - Installs and runs with [`gunicorn`](https://github.com/benoitc/gunicorn)
