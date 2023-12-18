@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+
 from .celery import example_task
 
 

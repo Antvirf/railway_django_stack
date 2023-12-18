@@ -2,7 +2,6 @@
 # https://docs.gunicorn.org/en/stable/configure.html#configuration-file
 # https://docs.gunicorn.org/en/stable/settings.html
 
-from gunicorn.glogging import Logger
 
 workers = 3
 max_requests = 1000
