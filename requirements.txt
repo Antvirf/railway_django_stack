@@ -6,3 +6,4 @@ gunicorn==21.2.0
 psycopg[binary]==3.1.15 
 python-decouple==3.8
 redis==5.0.1
+whitenoise==6.6.0

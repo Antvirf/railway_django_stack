@@ -1,6 +1,29 @@
 # `railway_django_stack`
 
-<!-- BUTTON HERE -->
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/NBR_V3?referralCode=6rOei9)
+
+Full Django/Postgres stack with Celery tasks and Redis as cache/queue.
+
+## Overview
+
+WIP
+
+## Deploying the template
+
+1. In the deployment screen, you will need to configure a `DJANGO_SECRET_KEY`. You can use the below snippet to do that or otherwise generate your own.
+    <details>
+    <summary>Snippet to create secret</summary>
+
+    **This assumes your default python installation has Django installed.**
+
+    ```bash
+    python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+    ```
+
+    </details>
+1. Once the containers have been deployed, please take the following steps to delete public proxy addresses, as you will not need to access the private services directly:
+    - Go to the **Postgres** service > Settings > Networking, delete the proxy
+    - Go to the **Redis** service > Settings > Networking, delete the proxy
 
 ## Resources
 
@@ -55,14 +78,5 @@ This is a barebones Django-project with the following additions/updates:
     - [`django-celery-beat`](https://github.com/celery/django-celery-beat) for periodic task management
     - [`django-celery-results`](https://github.com/celery/django-celery-results) for viewing results of Celery tasks in Django Admin
 - Uses [`python-decouple`](https://github.com/HBNetwork/python-decouple) to manage settings via environment varialbes
+- Uses [`whitenoise`](https://github.com/evansd/whitenoise) to make serving static assets easy
 - Installs and runs with [`gunicorn`](https://github.com/benoitc/gunicorn)
-
-## Variable configurations
-
-| Variable | Description | Used by |
-| -------- | ----------- | ------- |
-`POSTGRES_HOST` | This should be the private URL of the Postgres service | Django, Celery
-`POSTGRES_DB` | Sets the Postgres default database name | Django, Celery, Postgres
-`POSTGRES_USER` | Sets the Postgres username | Django, Celery, Postgres
-`POSTGRES_PASSWORD` | Sets the Postgres user's password | Django, Celery, Postgres
-`REDIS_URL` | Configures the private URl of the Redis service | Django, Celery |

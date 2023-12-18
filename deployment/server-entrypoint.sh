@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "Collecting static files.."
+python manage.py collectstatic --noinput
+
 if [ "$RUN_MIGRATIONS" = "True" ]; then
     echo "Running migrations..."
     until python manage.py migrate

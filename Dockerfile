@@ -37,6 +37,10 @@ RUN apt-get -y purge gcc libc-dev python3-dev
 # Add all application code from this folder, including deployment entrypoints
 COPY --chown=python:python ./ /app
 
+# Create staticfiles folder
+RUN mkdir -p staticfiles && \
+    chown -R python:python staticfiles
+
 # Make entrypoints executable
 RUN chmod +x /app/deployment/server-entrypoint.sh && \
     chmod +x /app/deployment/worker-entrypoint.sh
