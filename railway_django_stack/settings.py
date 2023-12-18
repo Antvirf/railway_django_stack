@@ -98,7 +98,7 @@ CELERY_BEAT_SCHEDULER = config(
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": config("REDIS_URL", default="redis://redis:6379"),
+        "LOCATION": config("REDIS_PRIVATE_URL", default="redis://redis:6379"),
     }
 }
 

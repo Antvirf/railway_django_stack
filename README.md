@@ -6,7 +6,7 @@ Full Django/Postgres stack with Celery tasks and Redis as cache/queue.
 
 ## Overview
 
-WIP
+Deploy a "complete" Django setup - DB, caching and background tasks with Celery are all set up and ready to go. Deploy your background services
 
 ## Deploying the template
 

@@ -10,7 +10,7 @@ services:
       DEBUG: "False"
       RUN_MIGRATIONS: "True"
       DJANGO_SECRET_KEY: "insecure-key-fill-with-your-own"
-      REDIS_URL: "redis://redis:6379"
+      REDIS_PRIVATE_URL: "redis://redis:6379"
       POSTGRES_HOST: "db"
       POSTGRES_DB: "postgres"
       POSTGRES_USER: "postgres"
