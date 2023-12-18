@@ -87,9 +87,7 @@ DATABASES = {
     }
 }
 
-# "redis://default:nMBHkaMnAFJigALnJ5hEKhcbEhGlPlJo@viaduct.proxy.rlwy.net:34680"
 REDIS_URL = f"redis://{config('REDISUSER', default='default')}:{config('REDISPASSWORD', default='')}@{config('REDISHOST', default='redis')}:{config('REDISPORT', default=6379)}"
-
 
 # CELERY CONFIG
 CELERY_BROKER_URL = REDIS_URL
