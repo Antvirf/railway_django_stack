@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v4
         id: build-image
         env:
-          REGISTRY: ghcr.io/antvirf/railway_django_stack
+          REGISTRY: ghcr.io/${{ toLower(github.repository_owner) }}/${{ github.repository_name }}
         with:
           context: ./.
           file: ./Dockerfile
