@@ -1,7 +1,0 @@
-[build]
-builder = "DOCKERFILE"
-
-[deploy]
-healthcheckPath = "/healthcheck/"
-healthcheckTimeout = 30
-
