@@ -1,0 +1,57 @@
+version: "3"
+services:
+  server:
+    build: &app-build
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PYTHON_BUILD_VERSION: "3.11"
+    environment: &app-environment
+      DEBUG: "True"
+      RUN_MIGRATIONS: "True"
+      DJANGO_SECRET_KEY: "insecure-key-fill-with-your-own"
+      REDIS_URL: "redis://redis:6379"
+      POSTGRES_HOST: "db"
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_PORT: "5432"
+    depends_on: &app-depends-on
+      - db
+      - redis
+    command: /app/deployment/server-entrypoint.sh
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+      start_period: 5s
+    ports:
+      - 8000:8000
+
+  worker:
+    build: *app-build
+    environment: *app-environment
+    depends_on: *app-depends-on
+    command: /app/deployment/worker-entrypoint.sh
+
+  redis:
+    restart: unless-stopped
+    image: redis:latest
+    expose:
+      - 6379
+
+  db:
+    image: postgres:14.0-alpine
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    expose:
+      - 5432
+
+volumes:
+  postgres_data: {}
