@@ -30,11 +30,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ github.token }}
 
+      - name: Set REGISTRY env variable
+        run: echo "REGISTRY=ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build and push
         uses: docker/build-push-action@v4
         id: build-image
-        env:
-          REGISTRY: ghcr.io/${{ toLower(github.repository_owner) }}/${{ github.repository_name }}
         with:
           context: ./.
           file: ./Dockerfile
