@@ -7,7 +7,7 @@ services:
       args:
         PYTHON_BUILD_VERSION: "3.11"
     environment: &app-environment
-      DEBUG: "True"
+      DEBUG: "False"
       RUN_MIGRATIONS: "True"
       DJANGO_SECRET_KEY: "insecure-key-fill-with-your-own"
       REDIS_URL: "redis://redis:6379"
@@ -21,11 +21,8 @@ services:
       - redis
     command: /app/deployment/server-entrypoint.sh
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthcheck/"]
       interval: 5s
-      timeout: 2s
-      retries: 5
-      start_period: 5s
     ports:
       - 8000:8000
 

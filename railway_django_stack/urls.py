@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import railway_django_stack.example_views as example_views
+
+
 urlpatterns = [
+    path("", example_views.index, name="index"),
+    path("healthcheck/", example_views.health_check, name="health_check"),
+    path("test-task/", example_views.test_task, name="test_task"),
     path("admin/", admin.site.urls),
 ]
