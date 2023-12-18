@@ -78,11 +78,11 @@ WSGI_APPLICATION = "railway_django_stack.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "HOST": config("POSTGRES_HOST", default="db"),
-        "USER": config("POSTGRES_USER", default="postgres"),
-        "NAME": config("POSTGRES_DB", default="postgres"),
-        "PASSWORD": config("POSTGRES_PASSWORD", default="postgres"),
-        "PORT": config("POSTGRES_PORT", default=5432),
+        "HOST": config("PGHOST", default="db"),
+        "USER": config("PGUSER", default="postgres"),
+        "NAME": config("PGDATABASE", default="postgres"),
+        "PASSWORD": config("PGPASSWORD", default="postgres"),
+        "PORT": config("PGPORT", default=5432),
         "CONN_MAX_AGE": 60,
     }
 }

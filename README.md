@@ -44,6 +44,10 @@ docker-compose up
 
 ## Service diagram
 
+
+> **Warning**
+> Please check the instructions above on deploying the template. By default, Railway creates publicly available proxies for your Postgres and Redis services - make sure to delete them. Should you ever need direct access, creating the proxies is just a few clicks.
+
 ```mermaid
 flowchart LR
 
