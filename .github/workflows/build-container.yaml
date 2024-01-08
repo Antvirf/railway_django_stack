@@ -8,6 +8,9 @@ on:
   push:
     branches:
       - "main"
+  pull_request:
+    branches:
+      - "main"
   workflow_dispatch:
 
 permissions:
@@ -33,13 +36,13 @@ jobs:
       - name: Set REGISTRY env variable
         run: echo "REGISTRY=ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
-      - name: Build and push
+      - name: Build container image
         uses: docker/build-push-action@v4
         id: build-image
         with:
           context: ./.
           file: ./Dockerfile
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{env.REGISTRY}}:${{github.run_number}}, ${{env.REGISTRY}}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
