@@ -8,7 +8,7 @@ Full Django/Postgres stack with Celery tasks and Redis as cache/queue.
 
 Deploy a "complete" Django setup - DB, caching and background tasks with Celery are all set up and ready to go.
 
-Check out the full readme and brief on GitHub: https://github.com/Antvirf/railway_django_stack
+Check out the full readme and brief on GitHub: <https://github.com/Antvirf/railway_django_stack>
 
 ## Deploying the template
 
@@ -23,9 +23,6 @@ Check out the full readme and brief on GitHub: https://github.com/Antvirf/railwa
     ```
 
     </details>
-1. Once the containers have been deployed, please take the following steps to delete public proxy addresses, as you will not need to access the private services directly:
-    - Go to the **Postgres** service > Settings > Networking, delete the proxy
-    - Go to the **Redis** service > Settings > Networking, delete the proxy
 
 ## Resources
 
