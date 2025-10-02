@@ -6,7 +6,7 @@ Full Django/Postgres stack with Celery tasks and Redis as cache/queue.
 
 ## Overview
 
-Deploy a "complete" Django setup - DB, caching and background tasks with Celery are all set up and ready to go.
+Deploy a "complete" Django 5.2 setup - DB, caching and background tasks with Celery are all set up and ready to go.
 
 Check out the full readme and brief on GitHub: <https://github.com/Antvirf/railway_django_stack>
 
@@ -42,9 +42,6 @@ docker-compose up
 ```
 
 ## Service diagram
-
-> **Warning**
-> Please check the instructions above on deploying the template. By default, Railway creates publicly available proxies for your Postgres and Redis services - make sure to delete them. Should you ever need direct access, creating the proxies is just a few clicks.
 
 ```mermaid
 flowchart LR
