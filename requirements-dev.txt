@@ -4,4 +4,4 @@ EditorConfig==0.12.4
 black==24.4.2
 ruff==0.4.3
 mypy-extensions==1.0.0
-coverage==7.5.1
+coverage==7.11.0
