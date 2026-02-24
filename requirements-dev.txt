@@ -2,6 +2,6 @@ isort==5.13.2
 djlint==1.36.4
 EditorConfig==0.17.1
 black==26.1.0
-ruff==0.4.3
+ruff==0.15.2
 mypy-extensions==1.1.0
 coverage==7.11.0
